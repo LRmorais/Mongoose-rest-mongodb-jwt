@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 const authConfig = require('../config/auth.json');
-
+// divide a validação em partes mais simples para diminuir o consumo de processamento
 module.exports = (req, res, next) => {
     const authHeader = req.headers.authorization;
     if (!authHeader) {

@@ -1,7 +1,7 @@
 
 const mongoose = require('../database');
 const bcrypt = require('bcryptjs');
-
+// define os atributos do objeto
 const UserSchema = new mongoose.Schema({
     nome: {
         type: String,
@@ -54,7 +54,7 @@ const UserSchema = new mongoose.Schema({
     }
     
 })
-
+// criptografa a senha do usuario
 UserSchema.pre('save', async function(next){
     const hash = await bcrypt.hash(this.senha, 10 )
     this.senha = hash;
